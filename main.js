@@ -10,7 +10,7 @@ const hasText = (text) => {
 	return textStartsWith(text).exists() // 是否存在指定文本
 }
 const musicNotify = () => {
-	const m = '/storage/emulated/0/Android/data/com.tencent.mm/MicroMsg/Download/大籽-白月光与朱砂痣.mp3'
+	const m = '/storage/emulated/0/netease/cloudmusic/Music/Mark Pride - River Flows In You (Original Mix).mp3'
 	media.playMusic(m);
 	sleep(media.getMusicDuration());
 }
@@ -21,15 +21,15 @@ const start = () => {
 		clickSettle()
 		sleep(1000)
 		start()
-	} else if (hasText('非常抱歉，当前商品运力不足(063)') || hasText('很抱歉，下单失败')) {
+	} else if (hasText('非常抱歉') || hasText('很抱歉')) {
 		// 返回上一页
 		back()
-		sleep(1000)
+		sleep(60*2*1000)
 		start()
 	} else if (hasText('提交订单')) {
 		className("android.widget.TextView").text("提交订单").findOne().parent().click()
 		musicNotify()
-		sleep(1000)
+		sleep(60*10*1000)
 		start()
 	} else {
 		toast('停止活动了')
