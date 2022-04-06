@@ -29,11 +29,10 @@ const start = () => {
 	} else if (hasText('提交订单')) {
 		className("android.widget.TextView").text("提交订单").findOne().parent().click()
 		musicNotify()
-		sleep(60*10*1000)
-		start()
 	} else {
-		toast('停止活动了')
-		musicNotify()
+		back()
+		sleep(1000)
+		start()
 	}
 }
 start()
