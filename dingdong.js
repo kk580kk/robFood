@@ -84,8 +84,6 @@ const start = () => {
 						flag = false
 
 						musicNotify()
-
-						waitAnyTime(2000 + random() * 4000)
 						console.log("时间已经选择，立即支付")
 						//点击立即支付
 						id('tv_submit').findOne().click()
@@ -93,7 +91,8 @@ const start = () => {
 				}
 				if (flag) {
 					tryBack()
-					waitAnyTime(200 + random() * 1000)
+					waitAnyTime(200 + random() * 
+					1000)
 					tryBack()
 				}
 			} else if (failCount <= 10) {
