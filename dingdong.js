@@ -79,20 +79,21 @@ const start = () => {
 						console.log("找到可选时间：" + tvt.text())
 						tv.click()
 
-						waitAnyTime(2000 + random() * 4000)
-
 						flag = false
-
 						musicNotify()
-						console.log("时间已经选择，立即支付")
-						//点击立即支付
-						id('tv_submit').findOne().click()
+						do {
+							waitAnyTime(2000 + random() * 1000)
+
+							console.log("时间已经选择，立即支付")
+							//点击立即支付
+							id('tv_submit').findOne().click()
+						} while (hasText("立即支付"));
 					}
 				}
 				if (flag) {
 					tryBack()
-					waitAnyTime(200 + random() * 
-					1000)
+					waitAnyTime(200 + random() *
+						1000)
 					tryBack()
 				}
 			} else if (failCount <= 10) {
