@@ -1,7 +1,3 @@
-const appName = "盒马";
-launchApp(appName);
-sleep(3000);
-auto.waitFor()
 const hasText = (text) => {
 	return textStartsWith(text).exists() // 是否存在指定文本
 }
@@ -10,7 +6,7 @@ const waitAnyTime = (timer) => {
 	console.log("休息等待时间：" + timer)
 }
 const musicNotify = () => {
-	const m = '/storage/emulated/0/netease/cloudmusic/Music/Mark Pride - River Flows In You (Original Mix).mp3'
+	const m = './sound/Mark Pride - River Flows In You (Original Mix).mp3'
 	media.playMusic(m);
 	sleep(media.getMusicDuration());
 }
@@ -19,7 +15,10 @@ const tryBack = () => {
 	console.log("尝试返回")
 }
 const start = () => {
-
+	const appName = "盒马";
+	launchApp(appName);
+	sleep(3000);
+	auto.waitFor()
 	let flag = true;
 	let failCount = 0;
 	while (flag) {
@@ -30,16 +29,16 @@ const start = () => {
 			// 点击结算
 			id('button_cart_charge').findOne().click()
 			waitAnyTime(500 + random() * 1000)
-		} else if (id("title").text("选择时间").exists()) {			
+		} else if (id("title").text("选择时间").exists()) {
 			failCount = 0;
 			console.log("开始尝试选择送达时间")
 			var sc = id("period_title").find()
 			console.log("找到可选时间：" + sc.length)
 			for (var i = 0; i < sc.length; i++) {
-				var tv = sc[i];		
+				var tv = sc[i];
 				var sub = tv.parent().findOne(id("period_post_fee"))
 				if (sub != null) {
-					console.log(tv.text()+":"+sub.text())
+					console.log(tv.text() + ":" + sub.text())
 				} else {
 					console.log("找到可选时间：" + tv.text())
 					tv.parent().click()
@@ -61,7 +60,7 @@ const start = () => {
 			className("android.widget.TextView").text("提交订单").findOne().parent().click()
 			musicNotify()
 		} else if (hasText('非常抱歉') || hasText('很抱歉')) {
-			console("抱歉没货")
+			console.log("抱歉没货")
 			// 返回上一页
 			tryBack()
 			waitAnyTime(1000 + random() * 2000)
@@ -76,7 +75,6 @@ const start = () => {
 		}
 	}
 }
-start()
 
 // const appName = "盒马";
 // launchApp(appName);
@@ -84,3 +82,7 @@ start()
 // media.pauseMusic()
 // sleep(7000)
 // media.stopMusic()
+
+module.exports = {
+	Start: start
+};

@@ -2,7 +2,7 @@ const hasText = (text) => {
 	return textStartsWith(text).exists() // 是否存在指定文本
 }
 const musicNotify = () => {
-	const m = '/storage/emulated/0/netease/cloudmusic/Music/Mark Pride - River Flows In You (Original Mix).mp3'
+	const m = './sound/Mark Pride - River Flows In You (Original Mix).mp3'
 	media.playMusic(m);
 	sleep(media.getMusicDuration());
 }
@@ -110,11 +110,14 @@ const start = () => {
 		waitAnyTime(500 + random() * 500)
 	}
 }
-start()
-
 // const appName = "盒马";
 // launchApp(appName);
 // sleep(3000);
 // media.pauseMusic()
 // sleep(7000)
 // media.stopMusic()
+
+
+module.exports = {
+	Start: start
+};

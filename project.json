@@ -1,22 +1,41 @@
 {
-    "assets": [],
-    "encryptLevel": 0,
-    "useFeatures": [],
-    "launchConfig": {
-      "displaySplash": true,
-      "hideLogs": false,
-      "splashText": "Powered by Auto.js Pro",
-      "stableMode": false
-    },
-    "main": "main.js",
-    "name": "My Project",
-    "optimization": {
-      "removeOpenCv": false,
-      "unusedResources": false
-    },
-    "packageName": "org.example.my_project",
-    "scripts": {},
-    "versionCode": 1,
-    "versionName": "1.0.0",
-    "ignore": ["build", "node_modules"]
-  }
+  "assets": [],
+  "build": {
+    "build_id": "3D55255A-1",
+    "build_number": 1,
+    "build_time": 1649764807035,
+    "release": false
+  },
+  "encryptLevel": 0,
+  "useFeatures": [],
+  "icon": "res/logo.png",
+  "launchConfig": {
+    "displaySplash": true,
+    "hideLogs": false,
+    "splashText": "Powered by Auto.js Pro",
+    "stableMode": false
+  },
+  "main": "main.js",
+  "name": "上海疫情买菜工具",
+  "optimization": {
+    "removeAccessibilityService": false,
+    "removeOpenCv": false,
+    "unusedResources": false
+  },
+  "packageName": "org.foreveralone.robfood",
+  "permissionConfig": {
+    "manifestPermissions": [
+      "android.permission.BIND_ACCESSIBILITY_SERVICE",
+      "android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS",
+      "android.permission.SYSTEM_ALERT_WINDOW"
+    ],
+    "requestListOnStartup": [
+      "android.permission.BIND_ACCESSIBILITY_SERVICE",
+      "android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS",
+      "android.permission.SYSTEM_ALERT_WINDOW"
+    ]
+  },
+  "scripts": {},
+  "versionCode": 1,
+  "versionName": "1.0.0"
+}
