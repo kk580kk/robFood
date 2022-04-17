@@ -23,8 +23,11 @@ const start = () => {
 	let failCount = 0;
 	while (flag) {
 		// 是否有结算按钮
-		if (hasText("结算")) {
-			failCount = 0
+		if (hasText("当前购物高峰期人数较多，请您稍后再试")&&hasText("温馨提示")) {
+			tryBack()
+			waitAnyTime(500 + random() * 2000)
+		} else if (hasText("结算")) {
+			failCount = 0 
 			console.log("找到结算按钮")
 			// 点击结算
 			id('button_cart_charge').findOne().click()
